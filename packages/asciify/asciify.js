@@ -1,0 +1,1 @@
+asciify = Npm.require("asciify")

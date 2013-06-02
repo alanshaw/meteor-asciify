@@ -1,0 +1,23 @@
+<head>
+  <title>asciifym</title>
+</head>
+
+<body>
+  {{> msgs}}
+  {{> input}}
+</body>
+
+<template name="msgs">
+  <ul>
+    <li>
+      <strong>Handle:</strong>
+      <span data-font="graffiti" data-asciified="false">Message</span>
+    </li>
+  </ul>
+</template>
+
+<template name="input">
+  <input id="handle" type="text"/>
+  <select id="font"></select>
+  <input id="send" type="button" value="Send" />
+</template>
