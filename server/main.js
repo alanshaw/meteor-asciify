@@ -1,5 +1,7 @@
 var Future = Npm.require("fibers/future")
 
+var uuid = 0;
+
 Meteor.methods({
   asciify: function (text, font) {
     // Future.wrap "futurifies" an async node function
@@ -16,6 +18,9 @@ Meteor.methods({
     return fut.wait()
     
     */
+  },
+  uuid: function () {
+    return uuid++
   }
 })
 
