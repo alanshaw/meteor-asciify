@@ -18,3 +18,7 @@ Meteor.methods({
     */
   }
 })
+
+Meteor.publish("messages", function () {
+  return Messages.find()
+})

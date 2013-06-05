@@ -9,15 +9,25 @@
 
 <template name="msgs">
   <ul>
-    <li>
-      <strong>Handle:</strong>
-      <span data-font="graffiti" data-asciified="false">Message</span>
-    </li>
+    {{#each msgs}}
+      {{> msg}}
+    {{/each}}
   </ul>
+</template>
+
+<template name="msg">
+  <li>
+    <time datetime="{{created}}">{{created}}</time>
+    <strong>{{handle}}: </strong>
+    <pre data-font="{{font}}">{{msg}}</pre>
+  </li>
 </template>
 
 <template name="input">
   <input id="handle" type="text"/>
-  <select id="font"></select>
+  <input id="msg" type="text"/>
+  <select id="font">
+    <option>graffiti</option>
+  </select>
   <input id="send" type="button" value="Send" />
 </template>
