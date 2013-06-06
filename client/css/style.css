@@ -1,3 +1,7 @@
+body {
+  background: #fff;
+  padding-bottom: 10em;
+}
 #msgs {
   list-style-type: none;
   margin: 0;
@@ -6,10 +10,11 @@
   border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 #msgs li:nth-child(even) {
-  background-color: #fefefe;
+  background-color: #fdfdfd;
 }
 pre {
-  font-family: "Courier New";
+  font-family: "Courier New", sans-serif;
+  line-height: 1;
   border: 0;
   background: transparent;
   margin: 0;
@@ -18,12 +23,19 @@ pre {
   background-color: #F5F5F5;
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+#input > .input-append {
+  display: block;
 }
 #font-add-on {
   font-family: "Times New Roman", sans-serif;
   font-style: italic;
 }
 #msg {
+  width: 75%;
   height: 3em;
 }
 #send {
