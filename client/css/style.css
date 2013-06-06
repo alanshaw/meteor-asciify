@@ -1,0 +1,31 @@
+#msgs {
+  list-style-type: none;
+  margin: 0;
+}
+#msgs li {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+#msgs li:nth-child(even) {
+  background-color: #fefefe;
+}
+pre {
+  font-family: "Courier New";
+  border: 0;
+  background: transparent;
+  margin: 0;
+}
+#input {
+  background-color: #F5F5F5;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 1em;
+}
+#font-add-on {
+  font-family: "Times New Roman", sans-serif;
+  font-style: italic;
+}
+#msg {
+  height: 3em;
+}
+#send {
+  height: 3.74em;
+}
