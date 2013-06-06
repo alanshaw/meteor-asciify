@@ -18,7 +18,7 @@ Template.msg.rendered = function () {
 
 Template.msg.gravatar = function (email) {
   var hash = $.md5(email);
-  return 'http://www.gravatar.com/avatar/' + hash + '?d=mm&s=200';
+  return 'http://www.gravatar.com/avatar/' + hash + '?s=100';
 }
 
 Template.msg.trim = function (email) {
