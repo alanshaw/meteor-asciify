@@ -17,6 +17,7 @@ body {
   float: right;
   font-size: smaller;
   color: #999;
+  margin-right: 1em;
 }
 pre {
   font-family: "Courier New", sans-serif;
