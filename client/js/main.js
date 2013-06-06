@@ -2,7 +2,7 @@ Meteor.subscribe("messages")
 
 // Get the messages for the template
 Template.msgs.msgs = function () {
-  return Messages.find().fetch()
+  return Messages.find({}, {limit: 100, sort: [['created', 'desc']]}).fetch().reverse()
 }
 
 // Asciify the message text when the template is rendered
@@ -62,7 +62,7 @@ Template.input.rendered = function () {
     $("#handle").val(handle)
   } else {
     Meteor.call("uuid", function (er, uuid) {
-      $("#handle").val("user-" + uuid + "@asciifym.meteor.com")
+      $("#handle").val("user" + uuid + "@asciifym.meteor.com")
     })
   }
   
