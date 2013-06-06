@@ -11,13 +11,13 @@ body {
   margin: 0;
 }
 #msgs li {
-  padding: 10px 0;
+  padding: 1em 0 1em 1em;
 }
 #msgs .meta{
   float: right;
   font-size: smaller;
   color: #999;
-  margin-right: 1em;
+  margin: 0 1em 1em 0;
 }
 pre {
   font-family: "Courier New", sans-serif;
