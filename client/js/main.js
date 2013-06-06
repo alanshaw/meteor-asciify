@@ -25,14 +25,16 @@ var scrollToBottom = (function() {
       Meteor.setTimeout(function() {
         scheduled = false
         $("html, body").animate({scrollTop: $(document).height()}, 1000)
-      }, 250)
+      }, 100)
     }
   }
 })()
 
-// Get or generate the user's handle
+// Get or generate the user's handle and get font list and select previously selected font
 Template.input.rendered = function () {
+  
   var handle = localStorage && localStorage.getItem("handle")
+  
   if (handle) {
     $("#handle").val(handle)
   } else {
@@ -40,6 +42,19 @@ Template.input.rendered = function () {
       $("#handle").val("user-" + uuid)
     })
   }
+  
+  var savedFont = localStorage && localStorage.getItem("font")
+    , fontSelect = $("#font")
+  
+  Meteor.call("fonts", function (er, fonts) {
+    fonts.forEach(function (font) {
+      var opt = $("<option/>").text(font)
+      if (font == savedFont) {
+        opt.attr("selected", true)
+      }
+      fontSelect.append(opt)
+    })
+  })
 }
 
 // Send a message by inserting into the Messages collection
@@ -53,7 +68,7 @@ function sendMsg () {
   $("#msg").val("")
 }
 
-// Events for sending messages and saving handle to localStorage
+// Events for sending messages and saving handle and font selection to localStorage
 Template.input.events({
   "click #send": sendMsg,
   "keyup #handle": function () {
@@ -64,6 +79,11 @@ Template.input.events({
   "keypress #msg": function (event) {
     if (event.which == 13) {
       sendMsg()
+    }
+  },
+  "change #font": function() {
+    if (localStorage) {
+      localStorage.setItem("font", $("#font").val())
     }
   }
 })

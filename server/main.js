@@ -21,6 +21,9 @@ Meteor.methods({
   },
   uuid: function () {
     return uuid++
+  },
+  fonts: function () {
+    return Future.wrap(asciify.getFonts)().wait()
   }
 })
 
