@@ -18,6 +18,9 @@ pre {
   border: 0;
   background: transparent;
   margin: 0;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: bottom;
 }
 #input {
   background-color: #F5F5F5;
