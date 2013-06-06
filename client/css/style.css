@@ -2,6 +2,10 @@ body {
   background: #EEE;
   padding-bottom: 10em;
 }
+#moar {
+  text-align: center;
+  padding: 1em;
+}
 #msgs {
   list-style-type: none;
   margin: 0;

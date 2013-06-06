@@ -3,9 +3,14 @@
 </head>
 
 <body>
+  {{> moar}}
   {{> msgs}}
   {{> input}}
 </body>
+
+<template name="moar">
+  <div id="moar"><button class="btn btn-mini" type="button"><i class="icon-arrow-up"></i> Older</button></div>
+</template>
 
 <template name="msgs">
   <ul id="msgs">
@@ -28,7 +33,6 @@
       <img class="gravatar" src="{{gravatar handle}}" title="{{trim handle}}">
     </div>
     {{/constant}}
-    
   </li>
 </template>
 

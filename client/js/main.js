@@ -1,8 +1,16 @@
 Meteor.subscribe("messages")
 
+Session.set("limit", 50)
+
+Template.moar.events({
+  "click button": function () {
+    Session.set("limit", Session.get("limit") + 50)
+  }
+})
+
 // Get the messages for the template
 Template.msgs.msgs = function () {
-  return Messages.find().fetch()
+  return Messages.find({}, {limit: Session.get("limit"), sort: [['created', 'desc']]}).fetch().reverse()
 }
 
 // Asciify the message text when the template is rendered
@@ -62,7 +70,7 @@ Template.input.rendered = function () {
     $("#handle").val(handle)
   } else {
     Meteor.call("uuid", function (er, uuid) {
-      $("#handle").val("user-" + uuid + "@asciifym.meteor.com")
+      $("#handle").val("user" + uuid + "@asciifym.meteor.com")
     })
   }
   
