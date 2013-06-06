@@ -12,6 +12,11 @@ body {
 #msgs li:nth-child(even) {
   background-color: #fdfdfd;
 }
+#msgs .meta{
+  text-align: right;
+  font-size: smaller;
+  color: #999;
+}
 pre {
   font-family: "Courier New", sans-serif;
   line-height: 1;

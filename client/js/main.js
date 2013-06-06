@@ -29,6 +29,10 @@ Template.msg.trim = function (email) {
   return email
 }
 
+Template.msg.fromnow = function (ms) {
+  return moment(ms).fromNow();
+}
+
 // Scroll to bottom of the page (debounced)
 var scrollToBottom = (function() {
   var scheduled = false
