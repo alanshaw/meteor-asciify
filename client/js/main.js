@@ -47,26 +47,32 @@ var scrollToBottom = (function() {
   }
 })()
 
+// Get an item from localStorage, if it is falsey, return dflt
+function stored (key, dflt) {
+  if (!localStorage) return dflt
+  return localStorage.getItem(key) || dflt
+}
+
 // Get or generate the user's handle and get font list and select previously selected font
 Template.input.rendered = function () {
   
-  var handle = localStorage && localStorage.getItem("handle")
+  var handle = stored("handle")
   
   if (handle) {
     $("#handle").val(handle)
   } else {
     Meteor.call("uuid", function (er, uuid) {
-      $("#handle").val("user-" + uuid)
+      $("#handle").val("user-" + uuid + "@asciifym.meteor.com")
     })
   }
   
-  var savedFont = localStorage && localStorage.getItem("font")
+  var storedFont = stored("font", "graffiti")
     , fontSelect = $("#font")
   
   Meteor.call("fonts", function (er, fonts) {
     fonts.forEach(function (font) {
       var opt = $("<option/>").text(font)
-      if (font == savedFont) {
+      if (font == storedFont) {
         opt.attr("selected", true)
       }
       fontSelect.append(opt)
