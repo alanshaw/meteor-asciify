@@ -25,20 +25,16 @@ Template.msg.rendered = function () {
 }
 
 Template.msg.gravatar = function (email) {
-  var hash = $.md5(email);
-  return 'http://www.gravatar.com/avatar/' + hash + '?s=50';
+  return "http://www.gravatar.com/avatar/" + $.md5(email) + "?s=50"
 }
 
 Template.msg.trim = function (email) {
   var res = /(.+)@/.exec(email)
-  if (res && res[1] && res[1] !== ''){
-    return res[1]
-  }
-  return email
+  return res && res[1] ? res[1] : email
 }
 
 Template.msg.fromnow = function (ms) {
-  return moment(ms).fromNow();
+  return moment(ms).fromNow()
 }
 
 // Scroll to bottom of the page (debounced)
