@@ -34,7 +34,11 @@
 
 <template name="input">
   <div id="input">
-    <form class="form-inline">
+    <form class="input-append">
+       <input id="msg" class="span4" type="text" placeholder="Message"/>
+       <button id="send" class="btn btn-success" type="button">Send</button>
+    </form>
+    <div class="form-inline">
       <div class="input-prepend">
         <span class="add-on">@</span>
         <input id="handle" type="text" placeholder="Email"/>
@@ -43,10 +47,6 @@
         <span id="font-add-on" class="add-on">T</span>
         <select id="font"></select>
       </div>
-    </form>
-    <div class="input-append">
-       <input id="msg" class="span4" type="text" placeholder="Message"/>
-       <button id="send" class="btn btn-success" type="button">Send</button>
     </div>
   </div>
 </template>
