@@ -32,10 +32,10 @@ pre {
   line-height: 1;
   border: 0;
   background: transparent;
-  margin: 0;
-  margin-left: 10px;
+  margin: 0 0 0 10px;
   display: inline-block;
   vertical-align: bottom;
+  white-space: pre;
 }
 #input {
   background-color: #F5F5F5;
@@ -44,6 +44,7 @@ pre {
   position: fixed;
   bottom: 0;
   width: 100%;
+  box-shadow: 0 0 0.25em #ccc;
 }
 #input > .input-append {
   display: block;

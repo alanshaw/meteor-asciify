@@ -28,5 +28,5 @@ Meteor.methods({
 })
 
 Meteor.publish("messages", function () {
-  return Messages.find()
+  return Messages.find({}, {sort: [['created', 'asc']]})
 })
