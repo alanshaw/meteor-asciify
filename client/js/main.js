@@ -1,10 +1,10 @@
 Meteor.subscribe("messages")
 
-Session.set("limit", 50)
+Session.set("limit", 25)
 
 Template.moar.events({
   "click button": function () {
-    Session.set("limit", Session.get("limit") + 50)
+    Session.set("limit", Session.get("limit") + 25)
   }
 })
 
