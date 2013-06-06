@@ -1,5 +1,5 @@
 body {
-  background: #fff;
+  background: #EEE;
   padding-bottom: 10em;
 }
 #msgs {
@@ -7,35 +7,36 @@ body {
   margin: 0;
 }
 #msgs li {
-  /*border-top: 1px solid rgba(0, 0, 0, 0.05);*/
-}
-#msgs li:nth-child(even) {
-  background-color: #fdfdfd;
+  padding: 10px 0;
 }
 #msgs .meta{
   float: right;
   font-size: smaller;
   color: #999;
 }
-.gravatar{
-  background: #333;
-  display: inline-block;
-  width:100px;
-  height:12em;
-}
-.gravatar img{
-  margin-top:50px;
-}
-
 pre {
   font-family: "Courier New", sans-serif;
   line-height: 1;
-  border: 0;
-  background: transparent;
-  margin: 0 0 0 10px;
+  color:black;
+  background: white;
+  border: 0 none;
   display: inline-block;
-  vertical-align: bottom;
   white-space: pre;
+
+  padding: 10px 20px 8px;
+  border: solid 1px rgba(0,0,0,0.05);
+  -webkit-border-radius: 10px;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius: 10px;
+  -moz-border-radius-bottomleft: 0;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+}
+.gravatar{
+  margin-top: -25px;
+}
+.msg-box{
+  margin: 0 0 0 60px;
 }
 #input {
   background-color: #F5F5F5;
