@@ -74,7 +74,7 @@ Template.input.rendered = function () {
     , fontSelect = $("#font")
   
   Meteor.call("fonts", function (er, fonts) {
-    fonts.forEach(function (font) {
+    fonts.sort().forEach(function (font) {
       var opt = $("<option/>").text(font)
       if (font == storedFont) {
         opt.attr("selected", true)
