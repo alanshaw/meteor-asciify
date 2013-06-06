@@ -21,7 +21,14 @@
         <time datetime="{{created}}">{{created}}</time>
         <strong>{{handle}}: </strong>
     </div>
-    {{#constant}}<pre data-font="{{font}}">{{msg}}</pre>{{/constant}}
+    
+    {{#constant}}
+    <div>
+      <img src="{{gravatar handle}}" title="{{trim handle}}">
+      <pre data-font="{{font}}">{{msg}}</pre>
+    </div>
+    {{/constant}}
+    
   </li>
 </template>
 
