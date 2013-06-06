@@ -1,8 +1,16 @@
 Meteor.subscribe("messages")
 
+Session.set("limit", 50)
+
+Template.moar.events({
+  "click button": function () {
+    Session.set("limit", Session.get("limit") + 50)
+  }
+})
+
 // Get the messages for the template
 Template.msgs.msgs = function () {
-  return Messages.find({}, {limit: 100, sort: [['created', 'desc']]}).fetch().reverse()
+  return Messages.find({}, {limit: Session.get("limit"), sort: [['created', 'desc']]}).fetch().reverse()
 }
 
 // Asciify the message text when the template is rendered
