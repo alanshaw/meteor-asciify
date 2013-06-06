@@ -39,6 +39,8 @@ pre {
 }
 .gravatar{
   margin-top: -25px;
+  border-radius: 3px;
+  box-shadow: 0 0 2px #444;
 }
 .msg-box{
   margin: 0 0 0 60px;
