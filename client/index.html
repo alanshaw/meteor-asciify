@@ -18,10 +18,8 @@
 <template name="msg">
   <li>
     <div class="meta">
-        <time datetime="{{created}}">{{created}}</time>
-        <strong>{{handle}}: </strong>
+        <time datetime="{{created}}">{{fromnow created}}</time>
     </div>
-    
     {{#constant}}
     <div>
       <img src="{{gravatar handle}}" title="{{trim handle}}">
