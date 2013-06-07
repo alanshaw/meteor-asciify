@@ -66,7 +66,7 @@ Template.input.rendered = function () {
     $("#handle").val(handle)
   } else {
     Meteor.call("uuid", function (er, uuid) {
-      $("#handle").val("user" + uuid + "@asciifym.meteor.com")
+      $("#handle").val("user" + uuid + "@asciify.meteor.com")
     })
   }
   
