@@ -25,7 +25,7 @@ Template.msg.rendered = function () {
 }
 
 Template.msg.gravatar = function (email) {
-  return "http://www.gravatar.com/avatar/" + $.md5(email) + "?s=50"
+  return "http://www.gravatar.com/avatar/" + $.md5(email) + "?s=50&d=retro"
 }
 
 Template.msg.trim = function (email) {
