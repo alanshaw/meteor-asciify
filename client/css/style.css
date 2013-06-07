@@ -57,7 +57,8 @@ pre:hover:after {
   padding: 1em 0 1em 72px;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
   box-shadow: 0 0 0.25em #ccc;
 }
 #input > .input-append {
@@ -77,4 +78,14 @@ pre:hover:after {
 }
 #send {
   height: 52px;
+}
+#gh {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  opacity: 0.15;
+  transition: opacity 0.25s linear;
+}
+#gh:hover {
+  opacity: 1;
 }
