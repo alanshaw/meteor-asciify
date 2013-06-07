@@ -86,13 +86,16 @@ Template.input.rendered = function () {
 
 // Send a message by inserting into the Messages collection
 function sendMsg () {
-  Messages.insert({
-      handle: $("#handle").val()
-    , msg: $("#msg").val()
-    , font: $("#font").val()
-    , created: moment().toDate().getTime()
-  })
-  $("#msg").val("")
+  var msg = $("#msg")
+  if (msg.val()) {
+    Messages.insert({
+        handle: $("#handle").val()
+      , msg: msg.val()
+      , font: $("#font").val()
+      , created: moment().toDate().getTime()
+    })
+    msg.val("")
+  }
 }
 
 // Events for sending messages and saving handle and font selection to localStorage
