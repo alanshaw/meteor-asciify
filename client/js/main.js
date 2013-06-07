@@ -10,7 +10,7 @@ Template.moar.events({
 
 // Get the messages for the template
 Template.msgs.msgs = function () {
-  return Messages.find({}, {limit: Session.get("limit"), sort: [['created', 'desc']]}).fetch().reverse()
+  return Messages.find({}, {limit: Session.get("limit"), sort: [["created", "desc"]]}).fetch().reverse()
 }
 
 // Asciify the message text when the template is rendered
@@ -19,7 +19,7 @@ Template.msg.rendered = function () {
   if (!pre.data("asciified")) {
     Meteor.call("asciify", pre.text(), pre.data("font"), function (er, text) {
       pre.attr("data-asciified", true).text(text)
-      scrollToBottom()
+      autoScrollToBottom()
     })
   }
 }
@@ -37,19 +37,39 @@ Template.msg.fromnow = function (ms) {
   return moment(ms).fromNow()
 }
 
-// Scroll to bottom of the page (debounced)
-var scrollToBottom = (function() {
+var win = $(window)
+  , doc = $(document)
+  , autoScrollEnabled = true
+  , autoScrolling = false
+
+// Auto scroll to bottom of the page (debounced)
+var autoScrollToBottom = (function() {
   var scheduled = false
   return function() {
-    if (!scheduled) {
+    if (!scheduled && autoScrollEnabled) {
       scheduled = true
       Meteor.setTimeout(function() {
         scheduled = false
-        $("html, body").animate({scrollTop: $(document).height()}, 1000)
+        autoScrolling = true
+        $("html, body").animate({scrollTop: doc.height()}, 1000, function () {
+          autoScrolling = false
+        })
       }, 100)
     }
   }
 })()
+
+// Enable auto scroll if user has scrolled to (near) the bottom of the page.
+// Auto scrolling is when the app automatically scrolls to the bottom of the screen because a new msg
+// has arrived. So if we're not doing that, and we recieve a scroll event it must be the user scrolling
+// up the page, so disable auto scrolling.
+win.scroll(function () {
+  if (win.scrollTop() + win.height() > doc.height() - 20) {
+    autoScrollEnabled = true
+  } else if (!autoScrolling) {
+    autoScrollEnabled = false
+  }
+})
 
 // Get an item from localStorage, if it is falsey, return dflt
 function stored (key, dflt) {
