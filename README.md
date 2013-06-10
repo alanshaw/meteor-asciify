@@ -126,8 +126,6 @@ So our template looks like this:
 </template>
 ```
 
-```
-
 We have constant areas, but it doesn't stop the template being rendered and the asciify meteor method being called. Simples, make a note of it using HTML5 `data-` attributes in the constant part of the template:
 
 ```javascript
