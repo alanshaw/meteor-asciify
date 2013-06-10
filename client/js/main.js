@@ -1,6 +1,9 @@
-Meteor.subscribe("messages")
-
 Session.set("limit", 25)
+Session.set("chan", window.location.pathname)
+
+Deps.autorun(function () {
+  Meteor.subscribe("messages", {channel: Session.get("chan"), limit: Session.get("limit")});
+})
 
 Template.moar.events({
   "click button": function () {
@@ -109,6 +112,7 @@ function sendMsg () {
   var msg = $("#msg")
   if (msg.val()) {
     Messages.insert({
+        channel: Session.get('chan'),
         handle: $("#handle").val()
       , msg: msg.val()
       , font: $("#font").val()
