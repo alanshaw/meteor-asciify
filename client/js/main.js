@@ -112,7 +112,7 @@ function sendMsg () {
         handle: $("#handle").val()
       , msg: msg.val()
       , font: $("#font").val()
-      , created: moment().toDate().getTime()
+      , created: Date.now()
     })
     msg.val("")
   }
