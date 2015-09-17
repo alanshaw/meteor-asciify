@@ -1,7 +1,7 @@
 Session.set("limit", 25)
 Session.set("chan", window.location.pathname)
 
-Deps.autorun(function () {
+Tracker.autorun(function () {
   Meteor.subscribe("messages", {channel: Session.get("chan"), limit: Session.get("limit")});
 })
 
@@ -12,9 +12,11 @@ Template.moar.events({
 })
 
 // Get the messages for the template
-Template.msgs.msgs = function () {
-  return Messages.find({}, {limit: Session.get("limit"), sort: [["created", "desc"]]}).fetch().reverse()
-}
+Template.msgs.helpers({
+  msgs: function () {
+    return Messages.find({}, {limit: Session.get("limit"), sort: [["created", "desc"]]}).fetch().reverse()
+  }
+})
 
 // Asciify the message text when the template is rendered
 Template.msg.rendered = function () {
@@ -27,18 +29,20 @@ Template.msg.rendered = function () {
   }
 }
 
-Template.msg.gravatar = function (email) {
-  return "http://www.gravatar.com/avatar/" + $.md5(email) + "?s=50&d=retro"
-}
+Template.msg.helpers({
+  gravatar: function (email) {
+    return "http://www.gravatar.com/avatar/" + $.md5(email) + "?s=100&d=retro"
+  },
 
-Template.msg.trim = function (email) {
-  var res = /(.+)@/.exec(email)
-  return res && res[1] ? res[1] : email
-}
+  trim: function (email) {
+    var res = /(.+)@/.exec(email)
+    return res && res[1] ? res[1] : email
+  },
 
-Template.msg.fromnow = function (ms) {
-  return moment(ms).fromNow()
-}
+  fromnow: function (ms) {
+    return moment(ms).fromNow()
+  }
+})
 
 var win = $(window)
   , doc = $(document)
